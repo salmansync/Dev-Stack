@@ -1,56 +1,76 @@
-const Card = () => {
-  return (
-    <div className="border border-slate-200 rounded-xl p-4 bg-white hover:shadow-md transition-all duration-300">
+const Card = ({
+    card,
+    handleAddToStack,
+    stack,
+}) => {
 
-      {/* Icon + Badge */}
-      <div className="flex items-center justify-between gap-2">
-        <img
-          className="w-8 h-8 object-contain"
-          src="https://icon.icepanel.io/Technology/svg/React.svg"
-          alt="React"
-        />
+    const isAdded = stack.some(
+        (item) => item.id === card.id
+    );
 
-        <p className="bg-[#E0F2FE] text-xs py-1 px-3 rounded-xl">
-          Popular
-        </p>
-      </div>
+    return (
+        <div className="border border-slate-200 rounded-xl p-3 sm:p-4 bg-white hover:shadow-md transition-all duration-300">
 
-      {/* Content */}
-      <div>
-        <h1 className="font-bold text-base my-2 text-slate-900">
-          React
-        </h1>
+            {/* Icon + Badge */}
+            <div className="flex items-center justify-between gap-2">
 
-        <p className="text-sm text-slate-500 leading-5 line-clamp-2">
-          A JavaScript library for building user interfaces and modern
-          web applications.
-        </p>
+                <img
+                    className="w-7 h-7 sm:w-8 sm:h-8 object-contain"
+                    src={card.icon}
+                    alt={card.name}
+                />
 
-        {/* Category + Difficulty + Rating */}
-        <div className="flex items-center justify-between gap-1 my-3">
+                <p className="bg-[#E0F2FE] text-[10px] sm:text-xs py-1 px-2 sm:px-3 rounded-xl">
+                    {card.badge}
+                </p>
 
-          <p className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-md">
-            Frontend
-          </p>
+            </div>
 
-          <p className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-md">
-            Beginner-Friendly
-          </p>
+            {/* Content */}
+            <div>
 
-          <p className="text-xs text-orange-500">
-            ⭐ 4.9
-          </p>
+                <h1 className="font-bold text-sm sm:text-base my-2 text-slate-900">
+                    {card.name}
+                </h1>
 
+                <p className="text-xs sm:text-sm text-slate-500 leading-5 line-clamp-2">
+                    {card.description}
+                </p>
+
+                {/* Info */}
+                <div className="flex items-center justify-between gap-1 my-3">
+
+                    <p className="text-[9px] sm:text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-md">
+                        {card.category}
+                    </p>
+
+                    <p className="text-[9px] sm:text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-md">
+                        {card.difficulty}
+                    </p>
+
+                    <p className="text-[9px] sm:text-xs text-orange-500">
+                        ⭐ {card.rating}
+                    </p>
+
+                </div>
+
+                {/* Add Button */}
+                <button
+                    onClick={() => handleAddToStack(card)}
+                    disabled={isAdded}
+                    className={`py-2 w-full rounded-lg text-xs sm:text-sm text-white font-semibold transition-all duration-300 ${isAdded
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-[#0F172A] hover:bg-[#1E293B]"
+                        }`}
+                >
+                    {isAdded
+                        ? "Added to Stack"
+                        : "Add to Stack"}
+                </button>
+
+            </div>
         </div>
-
-        {/* Button */}
-        <button className="py-2 w-full rounded-lg text-sm text-white font-semibold bg-[#0F172A] hover:bg-[#1E293B] transition-all duration-300">
-          Add to Stack
-        </button>
-      </div>
-
-    </div>
-  );
+    );
 };
 
 export default Card;
