@@ -4,7 +4,7 @@ const Banner = () => {
     return (
         <div className="max-w-350 mx-auto px-4 sm:px-6 mt-8 sm:mt-12 lg:mt-15">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-=
+
                 <div className="w-full lg:w-1/2 text-center lg:text-left">
 
                     <h1 className="text-[#0F172A] font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight">
