@@ -1,4 +1,4 @@
-import logo from "../../assets/logo.jpeg";
+import logo from "../../assets/logo-text.png";
 
 const Header = () => {
   return (
@@ -6,14 +6,14 @@ const Header = () => {
       <div className="max-w-350 mx-auto px-4">
         <div className="h-20 flex items-center justify-between">
 
-          {/* Logo */}
+
           <img
             src={logo}
             alt="DevStack"
             className="w-28"
           />
 
-          {/* Navigation */}
+
           <nav>
             <ul className="flex items-center gap-6 text-sm text-slate-600 font-medium">
               <li>
@@ -63,7 +63,7 @@ const Header = () => {
             </ul>
           </nav>
 
-          {/* Auth Buttons */}
+
           <div className="flex items-center gap-2">
             <button className="hover:bg-[#D91B7E] hover:text-white text-slate-600 px-5 py-2 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
               Sign In
